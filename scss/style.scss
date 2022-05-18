@@ -50,14 +50,13 @@ a{
 .container{
     @include m.dim(auto, 50%, blue);
     margin: 0 auto;
-    min-height: 500px;
     display: flex;
 
     .col{
         @include m.dim(auto, 50%, green);
 
         .small_btn_container{
-            @include m.dim(auto, 100%, blue);
+            @include m.dim(auto, 100%);
             display: grid;
             grid-template-columns: 50% 50%;
 
@@ -71,6 +70,7 @@ a{
                 align-items: center;
                 overflow: hidden;
                 word-wrap: break-word;
+                font-weight: 600;
 
                 .icon{
                     @include m.dim(30px, 30px, red);
@@ -78,6 +78,7 @@ a{
                     border-radius: 15px;
                     color: v.$white;
                     margin-right: 5px;
+                    min-width: 30px;
                 }
             }
         }
@@ -87,6 +88,13 @@ a{
         @include m.dim(100px, 100%, red);
         border-radius: 15px;
         @include m.flexbox(center, center);
+        font-size: 20px;
+        font-weight: 700;
+        padding: 10px;
+
+        i{
+            margin: 10px;
+        }
     }
 }
 
