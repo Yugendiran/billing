@@ -1,0 +1,24 @@
+{
+  "name": "billing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --no-source-map --style compressed --watch scss:public/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yugendiran/billing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yugendiran/billing/issues"
+  },
+  "homepage": "https://github.com/Yugendiran/billing#readme",
+  "dependencies": {
+    "sass": "^1.51.0"
+  }
+}

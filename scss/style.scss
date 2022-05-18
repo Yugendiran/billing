@@ -1,0 +1,123 @@
+@use "utils/variables" as v;
+@use "utils/mixins" as m;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: v.$livvic;
+}
+
+a{
+    color: v.$black;
+    text-decoration: none;
+}
+
+.summary{
+    @include m.dim(auto, 80%);
+    margin: 20px auto;
+
+    ul{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        justify-content: space-evenly;
+
+        li{
+            font-weight: 700;
+            cursor: pointer;
+
+            &:hover{
+                text-decoration: underline;
+            }
+
+            span{
+                color: v.$blue;
+            }
+        }
+    }
+}
+
+.container{
+    @include m.dim(auto, 50%, blue);
+    margin: 0 auto;
+    min-height: 500px;
+    display: flex;
+
+    .col{
+        @include m.dim(auto, 50%, green);
+
+        .small_btn_container{
+            @include m.dim(auto, 100%, blue);
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+            .home_small_btn{
+                @include m.dim(50px, auto, yellow);
+                margin: 10px auto;
+                width: calc(100% - 10px);
+                border-radius: 15px;
+                display: flex;
+                padding: 5px;
+                align-items: center;
+                overflow: hidden;
+                word-wrap: break-word;
+
+                .icon{
+                    @include m.dim(30px, 30px, red);
+                    @include m.flexbox(center, center);
+                    border-radius: 15px;
+                    color: v.$white;
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+
+    .home_btn{
+        @include m.dim(100px, 100%, red);
+        border-radius: 15px;
+        @include m.flexbox(center, center);
+    }
+}
+
+// Laptop(769 - 1279)
+@media only screen and (max-width: 1279px){
+
+}
+
+// Tablet(481 - 768)
+@media only screen and (max-width: 768px){
+    .summary{
+        width: 100%;
+        
+        ul{
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+    }
+}
+
+// Phone(361 - 480)
+@media only screen and (max-width: 480px){
+
+}
+
+// xPhone(360 - 0)
+@media only screen and (max-width: 360px){
+    .summary{
+        ul{
+            display: grid;
+            grid-template-columns: auto;
+        }
+    }
+}
