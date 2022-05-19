@@ -50,50 +50,42 @@
         <div class="add_field_container">
             <div class="item large">
                 <h5>Product</h5>
-                <div class="search-input">
-                    <a href="" target="_blank" hidden></a>
-                    <input type="text" placeholder="Type to search..">
-                    <div class="autocom-box">
-                      
-                    </div>
-                    <div class="icon"><i class="fas fa-search"></i></div>
+                <div class="input_container">
+                    <input type="text" id="productName">
                 </div>
-                <!-- <div class="input_container">
-                    <input type="text">
-                </div> -->
             </div>
             <div class="item large">
                 <h5>Description</h5>
                 <div class="input_container">
-                    <input type="text">
+                    <input type="text" id="productDescription">
                 </div>
             </div>
             <div class="item small">
                 <h5>Quantity</h5>
                 <div class="input_container">
-                    <input type="number">
+                    <input type="number" id="productQty">
                 </div>
             </div>
             <div class="item small">
                 <h5>HSN</h5>
                 <div class="input_container">
-                    <input type="number">
+                    <input type="number" id="productHsn">
                 </div>
             </div>
             <div class="item small">
                 <h5>Unit Price</h5>
                 <div class="input_container">
-                    <input type="number">
+                    <input type="number" id="productUnitPrice">
                 </div>
             </div>
             <div class="item small">
                 <h5>Total</h5>
                 <div class="input_container">
-                    <input type="number">
+                    <input type="number" id="productTotal">
                 </div>
             </div>
         </div>
-        <div class="add_btn">
+        <div class="add_btn" onclick="addList();">
             <i class="fa-solid fa-plus"></i> Add Item
         </div>
 
