@@ -181,7 +181,7 @@ input{
         display: grid;
         grid-template-columns: 30% 30% 200px;
         grid-gap: 10px;
-        // border: 1px solid v.$gray;
+        border: 1px solid v.$gray;
         padding: 10px;
         
         .col{
@@ -198,6 +198,35 @@ input{
                     border: 1px solid v.$gray;
                 }
             }
+        }
+    }
+
+    .add_field_container{
+        @include m.dim(auto, 100%);
+        padding: 10px;
+        @include m.flexbox(space-evenly);
+        flex-wrap: wrap;
+        margin: 10px 0;
+
+        .item{
+            @include m.dim(100%, auto);
+            @include m.flexbox(space-evenly, flex-start, column);
+            margin: 5px;
+
+            .input_container{
+                width: 100%;
+
+                input{
+                    width: 100%;
+                    padding: 0 5px;
+                    border: 1px solid v.$gray;
+
+                    &:focus{
+                        border-color: v.$blue;
+                    }
+                }
+            }
+
 
 
 
@@ -271,35 +300,8 @@ input{
 
 
 
- 
-        }
-    }
 
-    .add_field_container{
-        @include m.dim(auto, 100%);
-        padding: 10px;
-        @include m.flexbox(space-evenly);
-        flex-wrap: wrap;
-        margin: 10px 0;
 
-        .item{
-            @include m.dim(100%, auto);
-            @include m.flexbox(space-evenly, flex-start, column);
-            margin: 5px;
-
-            .input_container{
-                width: 100%;
-
-                input{
-                    width: 100%;
-                    padding: 0 5px;
-                    border: 1px solid v.$gray;
-
-                    &:focus{
-                        border-color: v.$blue;
-                    }
-                }
-            }
         }
 
         .large{
@@ -320,6 +322,12 @@ input{
         border-radius: 15px;
         font-weight: 700;
         cursor: pointer;
+        transition: .3s;
+    
+        &:hover{
+            transform: scale(1.1);
+            box-shadow: 0 0 6px -4px v.$gray;
+        }
     }
 
     .table_container{
@@ -406,6 +414,12 @@ input{
     margin: 10px auto;
     color: v.$white;
     cursor: pointer;
+    transition: .3s;
+
+    &:hover{
+        transform: scale(1.1);
+        box-shadow: 0 0 6px -4px v.$gray;
+    }
 }
 
 // Laptop(769 - 1279)
