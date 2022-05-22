@@ -218,8 +218,11 @@ input{
 
                 input{
                     width: 100%;
-                    padding: 0 5px;
+                    padding: 0 8px;
                     border: 1px solid v.$gray;
+                    margin: 5px 0;
+                    border-radius: 15px;
+                    height: 30px;
 
                     &:focus{
                         border-color: v.$blue;
@@ -400,6 +403,14 @@ input{
                 td:last-child{
                     font-weight: 700;
                 }
+            }
+
+            .gstOne1, .gstOne2, .gstTwo{
+                visibility: hidden;
+            }
+
+            .open{
+                visibility: visible;
             }
         }
     }
