@@ -97,9 +97,6 @@ function addList(){
     }
 }
 
-
-
-
 const selected = document.querySelector(".selected");
 const optionsContainer = document.querySelector(".options-container");
 const searchBox = document.querySelector(".search-box input");
@@ -151,7 +148,7 @@ selected2.addEventListener("click", () => {
   optionsContainer2.classList.toggle("active");
 
   searchBox2.value = "";
-  filterList("");
+  filterList2("");
 
   if (optionsContainer2.classList.contains("active")) {
     searchBox2.focus();
@@ -171,12 +168,95 @@ searchBox2.addEventListener("keyup", function(e) {
 
 const filterList2 = searchTerm2 => {
   searchTerm2 = searchTerm2.toLowerCase();
-  optionsList2.forEach(option => {
-    let label = option.firstElementChild.nextElementSibling.innerText.toLowerCase();
+  optionsList2.forEach(option2 => {
+    let label = option2.firstElementChild.nextElementSibling.innerText.toLowerCase();
     if (label.indexOf(searchTerm2) != -1) {
-      option.style.display = "block";
+      option2.style.display = "block";
     } else {
-      option.style.display = "none";
+      option2.style.display = "none";
     }
   });
 };
+
+
+function billInvoice(){
+  var billAddress = document.querySelector('input[type=radio][name=category]:checked');
+  var shipAddress = document.querySelector('input[type=radio][name=category2]:checked');
+  console.log(billAddress.value);
+  console.log(shipAddress.value);
+  if(billAddress == null){
+    selected.innerHTML = "Select Billing Address";
+    alert("Please Select Billing Address");
+  }else if(shipAddress == null){
+    selected2.innerHTML = "Select Billing Address";
+    alert("Please Select Shipping Address");
+  }else{
+    var invoiceNum = document.querySelector('#invNum').value;
+    var invoiceDate = document.querySelector('#invDate').value;
+    var invoiceDue = document.querySelector('#invDue').value;
+    var taxType = document.querySelector('input[name="gst"]:checked').value;
+    
+    var productsTable = document.getElementById("tableItems");
+    var productListItems = productsTable.querySelectorAll(".table_content");
+
+    if(productListItems.length >= 1){
+      for(let i = 0; i < productListItems.length; i++){
+        let tds = productListItems[i].getElementsByTagName("td");
+    
+        let item = tds[1].innerHTML;
+        let qty = tds[2].innerHTML;
+        let hsn = tds[3].innerHTML;
+        let price = tds[4].innerHTML;
+    
+        $.ajax({
+          'url': 'addPro.php', 
+          'type': 'POST',
+          'data': {
+            item: item,
+            code: invoiceNum,
+            qty: qty,
+            hsn: hsn,
+            price: price
+          }, 
+          'success': function(data) {
+            
+          },
+          'error': function(data) {
+            
+          }
+        });
+      }
+    
+      $.ajax({
+        'url': 'addPro.php', 
+        'type': 'POST',
+        'data': {
+          archive: invoiceNum,
+          tax: taxType,
+          billAdd: billAddress.value,
+          shipAdd: shipAddress.value
+        }, 
+        'success': function(data) {
+          window.location.href = "gen.php?id=" + invoiceNum;
+        },
+        'error': function(data) {
+          alert("not ok");
+        }
+      });
+    }else{
+      alert("Please Add Atleast One Product.");
+    }
+  }  
+}
+
+var popupModel = document.querySelector(".popupContainer");
+
+function openCusForm(){
+  popupModel.style.display = "block";
+}
+
+window.onclick = function(event) {
+  if (event.target == popupModel) {
+    popupModel.style.display = "none";
+  }
+}
